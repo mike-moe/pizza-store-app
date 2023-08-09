@@ -1,7 +1,7 @@
-import { ComponentProps } from "react";
-
-export type FormWrapperProps = {
-  children: React.ReactNode;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  className?: string;
-} & Omit<ComponentProps<"form">, "onSubmit">;
+import { ReactNode } from "react";
+import { SubmitHandler } from "react-hook-form";
+export type FormData = {
+  email: string;
+  password: string;
+};
+export type FormProps = { onSubmit: SubmitHandler<FormData>; children: ReactNode };
