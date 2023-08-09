@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FormWrapper, FormInput, FormLabel } from "../../components/FromItems";
 import { ButtonComponent } from "../../components/common";
+import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 
 const LoginContainer = () => {
   const onSubmitHandler = (data: object) => {
@@ -12,14 +14,13 @@ const LoginContainer = () => {
     setIsPasswordVisible((prevState) => !prevState);
   }
   return (
-    <div>
-      <FormWrapper onSubmit={onSubmitHandler}>
+    <FormWrapper onSubmit={onSubmitHandler}>
         <FormLabel className="block text-gray-700 text-sm font-bold" forProp="email" children="Username" />
         <FormInput
           id="email"
           name="email"
           type="email"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-3"
+          className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-3"
         />
         <FormLabel className="block text-gray-700 text-sm font-bold" forProp="password" children="Password" />
         <div className="relative">
@@ -27,7 +28,7 @@ const LoginContainer = () => {
             id="password"
             name="password"
             type={isPasswordVisible ? "text" : "password"}
-            className=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-3"
+            className=" shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-3"
           />
           <button className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600" onClick={togglePasswordVisibility}>
             {isPasswordVisible ? (
@@ -50,9 +51,29 @@ const LoginContainer = () => {
             )}
           </button>
         </div>
-        <ButtonComponent type="submit" className="bg-green-600 text-white w-full rounded my-5 p-3" children="Login" />
-      </FormWrapper>
-    </div>
+        <Link to="/forgot-password" className="text-orange text-sm font-bold uppercase">
+          Forgot Password
+        </Link>
+        <ButtonComponent
+          type="submit"
+          className="shadow w-full outline text-orange font-bold uppercase  border-orange hover:bg-gray-50 rounded my-5 p-3"
+          children="Login"
+        />
+        <Link to="/register" className="text-orange text-sm font-bold uppercase underline my-3 block">
+          Create account
+        </Link>
+        <hr />
+        <ButtonComponent
+          type="button"
+          className="outline w-full text-gray-600  border-gray-600 hover:bg-gray-50 rounded my-5 p-2 shadow"
+          children={
+            <div className="flex row-auto items-center justify-center">
+              <FaGoogle className="text-blue-600" />
+              <span className="ml-2">Sign In With Google</span>
+            </div>
+          }
+        />
+    </FormWrapper>
   );
 };
 
