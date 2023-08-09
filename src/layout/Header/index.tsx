@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <nav className="bg-orange h-20 sticky top-0 text-white flex justify-around items-center px-5">
         <Link to={routes.home}>
-          <img src={logo} alt="logo" className="h-16 cursor-pointer" />
+          <img src={logo} alt="logo" className="h-16 cursor-pointer rounded-full" />
         </Link>
         <div className="flex justify-between flex-row">
           <span className="cursor-pointer flex flex-row items-center mx-4 ">
