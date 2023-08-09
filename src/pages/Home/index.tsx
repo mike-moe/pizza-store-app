@@ -1,5 +1,5 @@
-const Home = () => {
+const HomePage = () => {
   return <div className=" w-full h-96">Home</div>;
 };
 
-export default Home;
+export default HomePage;
