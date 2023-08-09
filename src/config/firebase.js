@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyAKKp9hVG1Qa2nUkIGmF9EClNaJO7Ci7kA",
-  authDomain: "pizza-store-abb3c.firebaseapp.com",
-  projectId: "pizza-store-abb3c",
-  storageBucket: "pizza-store-abb3c.appspot.com",
-  messagingSenderId: "508922081993",
-  appId: "1:508922081993:web:fc9a24c6ceb8c986bd5318",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase

@@ -7,9 +7,6 @@ import { ButtonComponent } from "../../components/common";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 const Header = () => {
-  console.log();
-  useEffect(() => {}, [auth.currentUser]);
-
   return (
     <header>
       <nav className="bg-orange h-20 sticky top-0 text-white flex justify-around items-center px-5">
