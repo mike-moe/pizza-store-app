@@ -6,7 +6,9 @@ import { FaShoppingBag, FaSignInAlt, FaUserAlt } from "react-icons/fa";
 import { ButtonComponent } from "../../components/common";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import { useAuth } from "../../context/AuthContext";
 const Header = () => {
+  const { authenticated } = useAuth();
   return (
     <header>
       <nav className="bg-orange h-20 sticky top-0 text-white flex justify-around items-center px-5">
@@ -14,7 +16,7 @@ const Header = () => {
           <img src={logo} alt="logo" className="h-16 cursor-pointer rounded-full" />
         </Link>
         <div className="flex justify-between flex-row">
-          {auth.currentUser ? (
+          {authenticated ? (
             <>
               <span className="cursor-pointer flex flex-row items-center mx-4 ">
                 <FaShoppingBag />
@@ -42,6 +44,8 @@ const Header = () => {
   );
 };
 export const UserItems = () => {
+  const { setAuthenticated } = useAuth();
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -54,7 +58,9 @@ export const UserItems = () => {
   };
   const signOutHandler = async () => {
     try {
-      await signOut(auth);
+      await signOut(auth).then(() => {
+        setAuthenticated(false);
+      });
     } catch (error) {
       console.log(error);
     }

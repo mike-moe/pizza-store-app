@@ -3,8 +3,10 @@ import { FormCheckbox, FormInput, FormLabel, FormWrapper } from "../../component
 import { Link } from "react-router-dom";
 import { ButtonComponent } from "../../components/common";
 import { CheckboxOptions } from "../../components/FromItems/Checkbox/Checkbox.type";
-
+import { useSubmitHandler } from "./hooks";
+import { auth } from "../../config/firebase";
 const RegisterContainer = () => {
+  const { onSubmitHandler } = useSubmitHandler();
   const disablityOptions: CheckboxOptions[] = [
     { label: "Visually Impaired", value: "Visually Impaired" },
     { label: "Reach Restriction", value: "Reach Restriction" },
@@ -16,12 +18,12 @@ const RegisterContainer = () => {
       value: "rules",
     },
   ];
-  const onSubmitHandler = async (data: any) => {
-    // await createUserWithEmailAndPassword(auth, data?.email, data?.password).then(() => {});
-    console.log(data);
-  };
+  // const onSubmitHandler = async (data: any) => {
+  //   // await createUserWithEmailAndPassword(auth, data?.email, data?.password).then(() => {});
+  //   console.log(data);
+  // };
   return (
-    <FormWrapper onSubmit={onSubmitHandler}>
+    <FormWrapper onSubmit={(data,auth) => onSubmitHandler(data, auth)}>
       <FormLabel className="block text-gray-700 text-sm font-bold" forProp="email" children="Email Address" />
       <FormInput
         id="email"
@@ -48,7 +50,7 @@ const RegisterContainer = () => {
         <FormLabel className="block text-gray-700 text-sm font-bold" children="I have physical limitation (optional)" />
         <FormCheckbox options={disablityOptions} name="disablity" reuiredValue={false} />
       </div>
-      <FormCheckbox options={rulesOption} name="rules" reuiredValue={true} />
+      <FormCheckbox options={rulesOption} name="rules" reuiredValue={false} />
 
       <ButtonComponent
         type="submit"

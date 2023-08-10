@@ -1,16 +1,17 @@
-import Layout from "../layout";
+import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "../context/AuthContext";
 import Header from "../layout/Header";
 import RoutesComponent from "./routes";
-import { BrowserRouter } from "react-router-dom";
 
 function App() {
+  
   return (
     <>
       <BrowserRouter>
-        {/* <Layout> */}
-        <Header />
-        <RoutesComponent />
-        {/* </Layout> */}
+        <AuthProvider>
+          <Header />
+          <RoutesComponent />
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

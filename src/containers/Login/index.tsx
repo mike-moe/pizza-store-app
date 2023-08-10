@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { FormWrapper, FormInput, FormLabel } from "../../components/FromItems";
 import { ButtonComponent } from "../../components/common";
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleAuthProvider } from "../../config/firebase";
 import { FormData } from "../../components/FromItems/FormWrapper/FormWrapper.type";
+import { useAuth } from "../../context/AuthContext";
 
 const LoginContainer = () => {
   console.log(auth.currentUser);
+  const { setAuthenticated } = useAuth();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
+  const navigate = useNavigate();
   function togglePasswordVisibility() {
     setIsPasswordVisible((prevState) => !prevState);
   }
@@ -20,7 +22,10 @@ const LoginContainer = () => {
   };
   const googleLoginHandler = async () => {
     try {
-      await signInWithPopup(auth, googleAuthProvider);
+      await signInWithPopup(auth, googleAuthProvider).then(() => {
+        setAuthenticated(true);
+        navigate("/");
+      });
     } catch (error) {
       console.log(error);
     }

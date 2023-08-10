@@ -1,9 +1,17 @@
+import { Navigate } from "react-router";
 import { LoginContainer } from "../../containers";
+import { useAuth } from "../../context/AuthContext";
 
 const LoginPage = () => {
-  return <>
-  <LoginContainer />
-  </>;
+  const { authenticated } = useAuth();
+  if (authenticated) {
+    return <Navigate to={"/"} replace />;
+  }
+  return (
+    <>
+      <LoginContainer />
+    </>
+  );
 };
 
 export default LoginPage;
