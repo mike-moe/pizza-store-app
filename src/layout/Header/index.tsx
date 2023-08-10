@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.jpg";
 import { routes } from "../../services";
 import { FaShoppingBag, FaSignInAlt, FaUserAlt } from "react-icons/fa";
@@ -9,6 +9,8 @@ import { auth } from "../../config/firebase";
 import { useAuth } from "../../context/AuthContext";
 const Header = () => {
   const { authenticated } = useAuth();
+  const location = useLocation();
+  console.log(location);
   return (
     <header>
       <nav className="bg-orange h-20 sticky top-0 text-white flex justify-around items-center px-5">
@@ -26,7 +28,7 @@ const Header = () => {
               </span>
               <UserItems />
             </>
-          ) : (
+          ) : location.pathname !== "/login" ? (
             <>
               <span className="cursor-pointer flex flex-row items-center mx-4 ">
                 <span>
@@ -37,7 +39,7 @@ const Header = () => {
                 </Link>
               </span>
             </>
-          )}
+          ) : null}
         </div>
       </nav>
     </header>
