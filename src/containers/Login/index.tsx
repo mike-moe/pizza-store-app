@@ -1,18 +1,14 @@
-import React, { useState } from "react";
-import { FormWrapper, FormInput, FormLabel } from "../../components/FromItems";
-import { ButtonComponent } from "../../components/common";
-import { Link,  useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, googleAuthProvider } from "../../config/firebase";
+import { Link } from "react-router-dom";
+import { FormInput, FormLabel, FormWrapper } from "../../components/FromItems";
 import { FormData } from "../../components/FromItems/FormWrapper/FormWrapper.type";
-import { useAuth } from "../../context/AuthContext";
+import { ButtonComponent } from "../../components/common";
+import { useGoogleLoginHandler } from "./hooks";
 
 const LoginContainer = () => {
-  console.log(auth.currentUser);
-  const { setAuthenticated } = useAuth();
+  const { googleLoginHandler } = useGoogleLoginHandler();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const navigate = useNavigate();
   function togglePasswordVisibility() {
     setIsPasswordVisible((prevState) => !prevState);
   }
@@ -20,16 +16,16 @@ const LoginContainer = () => {
     // await createUserWithEmailAndPassword(auth, data?.email, data?.password).then(() => {});
     console.log(data);
   };
-  const googleLoginHandler = async () => {
-    try {
-      await signInWithPopup(auth, googleAuthProvider).then(() => {
-        setAuthenticated(true);
-        navigate("/");
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const googleLoginHandler = async () => {
+  //   try {
+  //     await signInWithPopup(auth, googleAuthProvider).then(() => {
+  //       setAuthenticated(true);
+  //       navigate("/");
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <FormWrapper onSubmit={onSubmitHandler}>
       <FormLabel className="block text-gray-700 text-sm font-bold" forProp="email" children="Username" />
@@ -83,7 +79,7 @@ const LoginContainer = () => {
       <ButtonComponent
         onClick={googleLoginHandler}
         type="button"
-        className="outline w-full text-gray-600  border-gray-600 hover:bg-gray-50 rounded my-5 p-2 shadow"
+        className="outline w-full text-gray-400  border-gray-600 hover:bg-gray-50 rounded my-5 p-2 shadow"
         children={
           <div className="flex row-auto items-center justify-center">
             <FaGoogle className="text-blue-600" />
