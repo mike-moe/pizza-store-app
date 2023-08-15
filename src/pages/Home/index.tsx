@@ -1,9 +1,9 @@
-import { LoadingComponent } from "../../components/common";
+import { HomeContainer } from "../../containers";
 
 const HomePage = () => {
   return (
     <div className=" w-full h-96">
-      <LoadingComponent />{" "}
+      <HomeContainer />
     </div>
   );
 };

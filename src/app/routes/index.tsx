@@ -6,9 +6,9 @@ import { LoadingComponent, NotFound } from "../../components/common";
 
 const PrivateRoutes = () => {
   const { authenticated } = useAuth();
-  if (!authenticated) {
-    return <Navigate to={"/login"} replace />;
-  }
+  // if (!authenticated) {
+  //   return <Navigate to={"/login"} replace />;
+  // }
   return <Outlet />;
 };
 const RoutesComponent = () => {
