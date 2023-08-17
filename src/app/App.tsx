@@ -5,6 +5,7 @@ import RoutesComponent from "./routes";
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Footer from "../layout/Footer";
 function App() {
   const queryClient = new QueryClient()
   return (
@@ -14,6 +15,7 @@ function App() {
           <AuthProvider>
             <Header />
             <RoutesComponent />
+            <Footer />
           </AuthProvider>
           <ReactQueryDevtools initialIsOpen={false} />
         </BrowserRouter>

@@ -22,7 +22,6 @@ const RoutesComponent = () => {
           </Suspense>
         }
       />
-
       <Route path="/register" element={<RegisterPage />} />
       <Route path="*" element={<NotFound />} />
       <Route element={<PrivateRoutes />}>
