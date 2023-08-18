@@ -4,6 +4,9 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   /* font-weight: 400;
 
   color-scheme: light dark;
@@ -21,4 +24,5 @@ body{
   padding: 0;
   box-sizing: border-box;
   background-color: #ececec;
+  min-height: 100vh;
 }

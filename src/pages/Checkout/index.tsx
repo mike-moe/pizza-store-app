@@ -2,7 +2,7 @@ import { CheckoutContainer } from "../../containers";
 
 const CheckoutPage = () => {
   return (
-    <div>
+    <div className="w-full flex flex-grow justify-center py-8 ">
       <CheckoutContainer />
     </div>
   );

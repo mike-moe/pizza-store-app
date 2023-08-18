@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.jpg";
 import { routes } from "../../services";
-import { FaRegUserCircle, FaShoppingBag, FaSignInAlt, FaUserAlt } from "react-icons/fa";
+import { FaRegUserCircle, FaShoppingBag, FaShoppingCart, FaSignInAlt, FaUserAlt } from "react-icons/fa";
 import { ButtonComponent } from "../../components/common";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
@@ -37,6 +37,14 @@ const Header = () => {
                       <FaRegUserCircle />
                     </span>
                     <span className="uppercase">Login</span>
+                  </button>
+                </Link>
+                <Link to={routes.checkout} className="mx-2 cursor-pointer">
+                  <button className="bg-transparent hover:scale-110 py-1 px-2 transition-all flex items-center justify-between outline border-white rounded">
+                    <span className="mr-2">
+                      <FaShoppingCart />
+                    </span>
+                    <span className="uppercase">Cart</span>
                   </button>
                 </Link>
               </span>

@@ -8,7 +8,7 @@ const LoginPage = () => {
     return <Navigate to={"/"} replace />;
   }
   return (
-    <div className="w-full flex flex-shrink justify-center py-8 md:py-14">
+    <div className="w-full flex flex-grow justify-center">
       <LoginContainer />
     </div>
   );

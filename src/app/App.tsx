@@ -17,7 +17,7 @@ function App() {
             <RoutesComponent />
             <Footer />
           </AuthProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
+          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </BrowserRouter>
       </QueryClientProvider>
     </>

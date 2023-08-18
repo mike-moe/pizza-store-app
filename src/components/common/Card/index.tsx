@@ -13,7 +13,7 @@ const CardComponent = ({ pizza, key }: CardProps) => {
       <img className="object-cover object-center w-full h-4/6" src={pizza.image} alt={pizza.name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{pizza.name}</div>
-        <p className="text-gray-700 font-bold text-2xl font-mono">${pizza.price}</p>
+        <p className="text-gray-700 font-bold text-2xl">${pizza.price}</p>
       </div>
       <div className="px-6 py-4 flex flex-row justify-between items-center">
         <button

@@ -8,7 +8,7 @@ const HomeContainer = () => {
   console.log(pizzaItems);
   return (
     <div>
-      <div className="flex justify-center items-center  bg-gray-100 p-10">
+      <div className="flex flex-grow  justify-center items-center  bg-gray-100 p-20 mb-10">
         <div className="grid grid-cols-4 gap-4">
           {pizzas.map((pizza, index) => (
             <CardComponent key={index} pizza={pizza} />

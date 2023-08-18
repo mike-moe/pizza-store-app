@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-8 h-48">
+    <footer className="bg-white py-8 h-30 ">
       <div className="flex justify-center space-x-4">
         <Link to="#" className="text-gray-500 hover:text-blue-500">
           <FaFacebookSquare />
@@ -18,7 +18,7 @@ const Footer = () => {
           <FaInstagramSquare />
         </Link>
       </div>
-      <div className="flex justify-center mt-4 space-x-6">
+      <div className="flex justify-center mt-1 space-x-6">
         <Link to="/terms" className="text-gray-500 hover:text-blue-500">
           Terms &amp; Conditions
         </Link>
@@ -26,7 +26,7 @@ const Footer = () => {
           Privacy Policy
         </Link>
       </div>
-      <div className="text-center mt-8 text-gray-500">&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</div>
+      <div className="text-center mt-1 text-gray-500">&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</div>
     </footer>
   );
 };
