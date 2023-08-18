@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.jpg";
 import { routes } from "../../services";
-import { FaShoppingBag, FaSignInAlt, FaUserAlt } from "react-icons/fa";
+import { FaRegUserCircle, FaShoppingBag, FaSignInAlt, FaUserAlt } from "react-icons/fa";
 import { ButtonComponent } from "../../components/common";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
@@ -15,7 +15,7 @@ const Header = () => {
     <header>
       <nav className="bg-orange h-20 sticky top-0 text-white flex justify-around items-center px-5">
         <Link to={routes.home}>
-          <img src={logo} alt="logo" className="h-16 cursor-pointer rounded-full" />
+          <img src={logo} alt="logo" className="h-16 cursor-pointer rounded-full hover:scale-110 p-1 transition-all" />
         </Link>
         <div className="flex justify-between flex-row">
           {authenticated ? (
@@ -31,11 +31,13 @@ const Header = () => {
           ) : location.pathname !== "/login" ? (
             <>
               <span className="cursor-pointer flex flex-row items-center mx-4 ">
-                <span>
-                  <FaSignInAlt />
-                </span>
                 <Link to={routes.login} className="mx-2 cursor-pointer">
-                  Login
+                  <button className="bg-transparent hover:scale-110 py-1 px-2 transition-all flex items-center justify-between outline border-white rounded">
+                    <span className="mr-2">
+                      <FaRegUserCircle />
+                    </span>
+                    <span className="uppercase">Login</span>
+                  </button>
                 </Link>
               </span>
             </>
