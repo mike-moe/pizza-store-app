@@ -9,7 +9,7 @@ const CardComponent = memo(({ pizza, key, handleAddOrder,handleRemoveOrder, item
   console.log(items);
   return (
     <div className="max-w-xs rounded overflow-hidden shadow-lg md:m-4 bg-white hover:scale-105 transition-all cursor-pointer" key={key}>
-      <img className="object-cover object-center w-full h-4/6" src={pizza.image} alt={pizza.name} />
+      <img className="object-cover object-center scale-75 h-4/6" src={pizza.image} alt={pizza.name} />
       <div className="px-6 py-4">
         <div className="font-bold text-md md:text-xl mb-2">{pizza.name}</div>
         <p className="text-gray-700  text-md md:text-2xl">${pizza.price}</p>

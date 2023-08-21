@@ -34,7 +34,6 @@ export const CheckoutProvider = ({ children }: CheckoutContextProps) => {
   };
   const removeItem = (item: CheckoutProp) => {
     const existItem = items.find((i) => i.id === item.id);
-    console.log(existItem);
     if (existItem?.quantity === 1) {
       setItems(items.filter((i) => i.id !== item.id));
     } else {

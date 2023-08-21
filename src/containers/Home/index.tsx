@@ -4,7 +4,7 @@ import { pizzas } from "../../data/Pizzas";
 import { useCartItemHandler } from "./hooks";
 
 const HomeContainer = () => {
-  const { handleAddOrder, handleRemoveOrder, orderCount } = useCartItemHandler();
+  const { handleAddOrder, handleRemoveOrder } = useCartItemHandler();
   const { items } = useCheckout();
 
   return (
