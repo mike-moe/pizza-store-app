@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
-import { pizzas } from "../../data/Pizzas";
 import { CardComponent } from "../../components/common";
-import CoverImage from "../../assets/images/cover-one.jpg";
+import { useCheckout } from "../../context/Checkout";
+import { pizzas } from "../../data/Pizzas";
+import { useCartItemHandler } from "./hooks";
 
 const HomeContainer = () => {
-  const pizzaItems = [...pizzas];
-  console.log(pizzaItems);
+  const { handleAddOrder, handleRemoveOrder, orderCount } = useCartItemHandler();
+  const { items } = useCheckout();
+
   return (
     <div>
-      <div className="flex flex-grow  justify-center items-center  bg-gray-100 p-20 mb-10">
-        <div className="grid grid-cols-4 gap-4">
+      <div className="flex flex-grow  justify-center items-center p-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {pizzas.map((pizza, index) => (
-            <CardComponent key={index} pizza={pizza} />
+            <CardComponent key={index} pizza={pizza} handleAddOrder={handleAddOrder} handleRemoveOrder={handleRemoveOrder} items={items} />
           ))}
         </div>
       </div>
